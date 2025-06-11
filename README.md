@@ -1,7 +1,5 @@
 # Voice Assistant with OpenAI GPT-3 & IBM Watson
 
-![CognitiveClass.ai Logo](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-ML0101EN-SkillsNetwork/labs/FinalModule_Coursera/images/logo-cc.png)
-
 ## Conversational AI web app: Speak, listen, and chat with GPT-3, powered by IBM Watson Speech Services
 
 [Features](#-features) • [Tech Stack](#-tech-stack) • [How It Works](#-how-it-works) • [Screenshots](#-screenshots) • [Prerequisites](#-prerequisites) • [Getting Started](#-getting-started) • [Learning Objectives](#-learning-objectives) • [Acknowledgements](#-acknowledgements)
@@ -42,14 +40,6 @@
 6. **Text-to-Speech:** OpenAI's response is sent to IBM Watson Text-to-Speech API for audio synthesis.
 7. **Final Response:** Backend returns the text and audio (base64) to the frontend.
 8. **Playback:** Frontend displays the assistant's response and plays the audio.
-
----
-
-## 🖼️ Screenshots
-
-![Light Mode Screenshot](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/light-mode.png)
-
-![Dark Mode Screenshot](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/dark-mode.png)
 
 ---
 
