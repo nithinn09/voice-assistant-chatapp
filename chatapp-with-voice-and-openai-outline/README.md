@@ -1,152 +1,137 @@
-# Voice Assistant with OpenAI's GPT-3 and IBM Watson
+# Voice Assistant with OpenAI GPT-3 & IBM Watson
 
-![cognitiveclass.ai logo](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-ML0101EN-SkillsNetwork/labs/FinalModule_Coursera/images/logo-cc.png)
+![CognitiveClass.ai Logo](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-ML0101EN-SkillsNetwork/labs/FinalModule_Coursera/images/logo-cc.png)
 
-This project guides you through building a full-stack voice assistant. The assistant takes voice input, converts it to text, gets an intelligent response from OpenAI's GPT-3 model, converts the response back to speech, and plays it for the user.
+## Conversational AI web app: Speak, listen, and chat with GPT-3, powered by IBM Watson Speech Services
 
-The application features a responsive frontend built with HTML, CSS, and JavaScript, and a reliable backend powered by Python and Flask.
-
-Click here to play with a demo of the final application that you will create! *(Demo link from original course material)*
+[Features](#-features) • [Tech Stack](#-tech-stack) • [How It Works](#-how-it-works) • [Screenshots](#-screenshots) • [Prerequisites](#-prerequisites) • [Getting Started](#-getting-started) • [Learning Objectives](#-learning-objectives) • [Acknowledgements](#-acknowledgements)
 
 ---
 
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [How It Works](#how-it-works)
-- [Screenshots](#screenshots)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Learning Objectives](#learning-objectives)
-- [Acknowledgements](#acknowledgements)
+## ✨ Features
+
+- 🎤 **Voice Interaction:** Speak to the assistant and hear its responses.
+- 🧠 **Intelligent Responses:** Powered by OpenAI's `gpt-3.5-turbo` model for natural and coherent conversations.
+- 🗣️ **High-Quality Speech Services:** Utilizes IBM Watson for fast and accurate Speech-to-Text and Text-to-Speech conversion.
+- 🌐 **Responsive Web Interface:** Clean, modern UI with HTML, CSS, and JavaScript.
+- 🎨 **Light & Dark Modes:** User-friendly theme switching for comfort.
+- 📦 **Containerized:** Includes a `Dockerfile` for easy setup and deployment.
+- 🐍 **Python Backend:** Built on the lightweight Flask web framework.
 
 ---
 
-## Features
-
-- **🎤 Voice Interaction:** Speak to the assistant and hear its responses.
-- **🧠 Intelligent Responses:** Powered by OpenAI's `gpt-3.5-turbo` model for natural and coherent conversations.
-- **🗣️ High-Quality Speech Services:** Utilizes IBM Watson for fast and accurate Speech-to-Text and Text-to-Speech conversion.
-- **🌐 Responsive Web Interface:** A clean and modern user interface built with HTML, CSS, and JavaScript.
-- **🎨 Light & Dark Modes:** User-friendly theme switching for better viewing comfort.
-- **📦 Containerized:** Comes with a `Dockerfile` for easy setup and consistent deployment across environments.
-- **🐍 Python Backend:** Built on the lightweight and powerful Flask web framework.
-
----
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Backend:** Python, Flask
 - **Frontend:** HTML, CSS, JavaScript, JQuery, Bootstrap, Font Awesome
 - **AI Services:**
-    - OpenAI API (`gpt-3.5-turbo`)
-    - IBM Watson Speech to Text
-    - IBM Watson Text to Speech
+  - OpenAI API (`gpt-3.5-turbo`)
+  - IBM Watson Speech to Text
+  - IBM Watson Text to Speech
 - **Containerization:** Docker
 
 ---
 
-## How It Works
+## 🧩 How It Works
 
-The application follows a simple but powerful architecture:
-
-1.  **Frontend (JavaScript):** Captures microphone audio when the user clicks the record button.
-2.  **Speech-to-Text:** The audio data is sent to the Flask backend's `/speech-to-text` endpoint. The backend forwards this to the **IBM Watson Speech-to-Text API**.
-3.  **User Prompt:** The transcribed text is returned to the frontend and displayed as the user's message.
-4.  **Process Prompt:** The frontend sends the transcribed text to the backend's `/process-message` endpoint.
-5.  **OpenAI GPT-3:** The backend sends the text prompt to the **OpenAI API**, asking it to act as a personal assistant.
-6.  **Text-to-Speech:** The text response from OpenAI is sent to the **IBM Watson Text-to-Speech API** to be converted into audio.
-7.  **Final Response:** The backend sends the text response and the synthesized audio (as a base64 string) back to the frontend.
-8.  **Playback:** The frontend displays the assistant's text response and automatically plays the audio.
+1. **Frontend (JavaScript):** Captures microphone audio when the user clicks the record button.
+2. **Speech-to-Text:** Audio is sent to Flask backend's `/speech-to-text` endpoint, which uses IBM Watson Speech-to-Text API.
+3. **User Prompt:** Transcribed text is returned and displayed as the user's message.
+4. **Process Prompt:** Frontend sends the text to backend's `/process-message` endpoint.
+5. **OpenAI GPT-3:** Backend sends the prompt to OpenAI API for a response.
+6. **Text-to-Speech:** OpenAI's response is sent to IBM Watson Text-to-Speech API for audio synthesis.
+7. **Final Response:** Backend returns the text and audio (base64) to the frontend.
+8. **Playback:** Frontend displays the assistant's response and plays the audio.
 
 ---
 
-## Screenshots
+## 🖼️ Screenshots
 
-<p align="center">
-  <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/light-mode.png" alt="Light Mode Screenshot" width="45%">
-     
-  <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/dark-mode.png" alt="Dark Mode Screenshot" width="45%">
-</p>
+![Light Mode Screenshot](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/light-mode.png)
+
+![Dark Mode Screenshot](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-Developer-Skills-Network-GPXX0ZN0EN/dark-mode.png)
 
 ---
 
-## Prerequisites
+## 🚀 Prerequisites
 
-- **Docker:** The application is designed to run in a Docker container. Make sure you have Docker installed.
-- **Git:** To clone the starter repository.
+- **Docker:** Ensure Docker is installed.
+- **Git:** To clone the repository.
 - **API Keys:**
-    > **Note:** This project was originally a guided project for the [CognitiveClass.ai](https://cognitiveclass.ai/) platform, which provides pre-configured IBM Watson services. If running this project outside that environment, you will need to:
-    > 1.  Create an **OpenAI** account and get an API key.
-    > 2.  Create an **IBM Cloud** account and provision instances of **Speech to Text** and **Text to Speech** to get their service URLs and API keys.
+  - **OpenAI:** Create an account and get an API key.
+  - **IBM Cloud:** Provision Speech to Text and Text to Speech services, get their URLs and API keys.
+
+> **Note for CognitiveClass.ai users:**
+> This project was originally a guided project for the [CognitiveClass.ai](https://cognitiveclass.ai/) platform, which provides pre-configured IBM Watson services. If running outside that environment, follow the steps above to obtain your own API keys and service URLs.
 
 ---
 
-## Getting Started
-
-Follow these steps to set up and run the project.
+## 🏁 Getting Started
 
 ### 1. Clone the Repository
-
-Clone the outline project from the IBM Developer Skills Network GitHub repository.
 
 ```bash
 git clone https://github.com/ibm-developer-skills-network/bkrva-chatapp-with-voice-and-openai-outline.git
 mv bkrva-chatapp-with-voice-and-openai-outline chatapp-with-voice-and-openai-outline
-cd chatapp-with-voice-and-openai-outline 
+cd chatapp-with-voice-and-openai-outline
+```
 
 ### 2. Configure the Services
 
-You need to tell the application where to find the Watson and OpenAI services. All changes are made in the worker.py file.
+Edit `worker.py` to add your API keys and service URLs:
 
-A. Configure IBM Watson Speech-to-Text
-In worker.py, locate the speech_to_text function and update the base_url variable with your Watson Speech-to-Text service URL.
+- **IBM Watson Speech-to-Text:** In `speech_to_text`, update `base_url` with your service URL.
+- **IBM Watson Text-to-Speech:** In `text_to_speech`, update `base_url` with your service URL.
+- **OpenAI:** Ensure your API key is set (typically via environment variable).
 
+Example:
+
+```python
 # worker.py
 
 def speech_to_text(audio_binary):
-    # Set up Watson Speech-to-Text HTTP Api url
-    base_url = 'https://sn-watson-stt.labs.skills.network' # <-- REPLACE WITH YOUR URL
+    base_url = 'https://YOUR-WATSON-STT-URL'  # <-- REPLACE WITH YOUR URL
     api_url = base_url + '/speech-to-text/api/v1/recognize'
     # ...
 
-B. Configure IBM Watson Text-to-Speech
-
-In worker.py, locate the text_to_speech function and update the base_url variable with your Watson Text-to-Speech service URL.
-
-# worker.py
-
 def text_to_speech(text, voice=""):
-    # Set up Watson Text-to-Speech HTTP Api url
-    base_url = 'https://sn-watson-tts.labs.skills.network' # <-- REPLACE WITH YOUR URL
+    base_url = 'https://YOUR-WATSON-TTS-URL'  # <-- REPLACE WITH YOUR URL
     api_url = base_url + '/text-to-speech/api/v1/synthesize?output=output_text.wav'
     # ...
+```
 
-C. Configure OpenAI
-The outline code uses a pre-configured openai_client. You will need to ensure it is initialized with your API key, typically via an environment variable.
+### 3. Build and Run with Docker
 
-### 3. Build and Run the Application with Docker
-
-The provided Dockerfile packages the application and all its dependencies.
-First, run the prerequisite commands if you are in the lab environment (this step may not be necessary for local setups).
-
-mkdir -p /home/project/chatapp-with-voice-and-openai-outline/certs/
-cp /usr/local/share/ca-certificates/rootCA.crt /home/project/chatapp-with-voice-and-openai-outline/certs/
-
-Now, build the Docker image and run the container.
-
+```bash
 # Build the Docker image
-
 docker build . -t voice-chatapp-powered-by-openai
 
 # Run the container, mapping port 8000
-
 docker run -p 8000:8000 voice-chatapp-powered-by-openai
+```
 
-Note: If you make changes to the code, you will need to stop the container (Ctrl+C), rebuild the image, and run it again.
+> **Tip:** If you make code changes, stop the container (Ctrl+C), rebuild, and rerun.
 
 ### 4. Test Your Assistant
 
-Open your web browser and navigate to http://localhost:8000.
+Open your browser and go to [http://localhost:8000](http://localhost:8000) to interact with your voice assistant!
 
-You can now interact with your voice assistant! Try typing a message or clicking the microphone icon to speak.
+---
+
+## 🎯 Learning Objectives
+
+- Integrate OpenAI GPT-3 with a web application
+- Use IBM Watson APIs for speech recognition and synthesis
+- Build a full-stack app with Flask and modern frontend tools
+- Containerize and deploy with Docker
+
+---
+
+## 🙏 Acknowledgements
+
+- [OpenAI](https://openai.com/)
+- [IBM Watson](https://www.ibm.com/watson)
+- [CognitiveClass.ai](https://cognitiveclass.ai/)
+- [IBM Developer Skills Network](https://developer.ibm.com/skills/)
+
+---
